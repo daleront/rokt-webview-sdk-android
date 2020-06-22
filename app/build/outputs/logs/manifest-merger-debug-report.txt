@@ -1,0 +1,135 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:2:1-22:12
+MERGED from [:roktwebviewsdk] /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/roktwebviewsdk/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/dd14b1b4f7052eb82f7e164f3c651f83/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.2.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/b53fb200803b19ae5dbf7c4ed03d405b/jetified-core-ktx-1.2.0/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/neda/.gradle/caches/transforms-2/files-2.1/8ebfe97a253bcdeb7e54efb68e3bd63d/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/26094c932462a63327dfe0ebeb98b7bd/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/1da9d773d39ea37c0a810d4a2a627a0d/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/620d56d9e0054e09796105fcee7e4337/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/a3c0344e3d953d8dab3424ae17ba2b8a/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/e33fb24e45b55a71e22f47ae4160bee4/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/4b323ed15e8bc64372742137c6e14687/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/1ba765d527867aad3cb7e0bbdd04e4cf/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/57f84b08a0190e9c1ebd5bea2b5565fa/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/fccb85d4cb04d9996a143788a9689762/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/633750ee2cafaeaf27af156c0702b682/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.2.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/b4fedd2b7398410c02546666461b308f/core-1.2.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/cd35b4efc86a55ff5ebc68513d828e50/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/73f7768c905d92f1ad9fba33cc76ab9d/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/3a07b2ac6fcf0372f5498f7c701a79be/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/00aa68e408a37241df5b238685dc8495/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/3c88e8ef8fc2e03d8644441a018fc2af/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/2d4d57d63201a19cfd2f7091abf2cbf6/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/d3ee6f55a20097514031528e68d5a300/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/0f927afa9c8c9734f8bd37f88a73b345/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:2:1-22:12
+	package
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:3:5-41
+		INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:4:22-64
+application
+ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:6:5-20:19
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/neda/.gradle/caches/transforms-2/files-2.1/8ebfe97a253bcdeb7e54efb68e3bd63d/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/neda/.gradle/caches/transforms-2/files-2.1/8ebfe97a253bcdeb7e54efb68e3bd63d/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.2.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/b4fedd2b7398410c02546666461b308f/core-1.2.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.2.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/b4fedd2b7398410c02546666461b308f/core-1.2.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/cd35b4efc86a55ff5ebc68513d828e50/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/cd35b4efc86a55ff5ebc68513d828e50/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.2.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/b4fedd2b7398410c02546666461b308f/core-1.2.0/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:11:9-35
+	android:label
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:9:9-41
+	android:roundIcon
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:10:9-54
+	android:icon
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:8:9-43
+	android:allowBackup
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:7:9-35
+	android:theme
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:12:9-40
+activity#rokt.com.roktwebviewsample.MainActivity
+ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:13:9-19:20
+	android:name
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:13:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:14:13-18:29
+action#android.intent.action.MAIN
+ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml:17:27-74
+uses-sdk
+INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+MERGED from [:roktwebviewsdk] /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/roktwebviewsdk/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-47
+MERGED from [:roktwebviewsdk] /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/roktwebviewsdk/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-47
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/dd14b1b4f7052eb82f7e164f3c651f83/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/dd14b1b4f7052eb82f7e164f3c651f83/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.2.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/b53fb200803b19ae5dbf7c4ed03d405b/jetified-core-ktx-1.2.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.2.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/b53fb200803b19ae5dbf7c4ed03d405b/jetified-core-ktx-1.2.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/neda/.gradle/caches/transforms-2/files-2.1/8ebfe97a253bcdeb7e54efb68e3bd63d/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/neda/.gradle/caches/transforms-2/files-2.1/8ebfe97a253bcdeb7e54efb68e3bd63d/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/26094c932462a63327dfe0ebeb98b7bd/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/26094c932462a63327dfe0ebeb98b7bd/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/1da9d773d39ea37c0a810d4a2a627a0d/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/1da9d773d39ea37c0a810d4a2a627a0d/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/620d56d9e0054e09796105fcee7e4337/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/620d56d9e0054e09796105fcee7e4337/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/a3c0344e3d953d8dab3424ae17ba2b8a/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/a3c0344e3d953d8dab3424ae17ba2b8a/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/e33fb24e45b55a71e22f47ae4160bee4/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/e33fb24e45b55a71e22f47ae4160bee4/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/4b323ed15e8bc64372742137c6e14687/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/4b323ed15e8bc64372742137c6e14687/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/1ba765d527867aad3cb7e0bbdd04e4cf/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/1ba765d527867aad3cb7e0bbdd04e4cf/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/57f84b08a0190e9c1ebd5bea2b5565fa/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/57f84b08a0190e9c1ebd5bea2b5565fa/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/fccb85d4cb04d9996a143788a9689762/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/fccb85d4cb04d9996a143788a9689762/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/633750ee2cafaeaf27af156c0702b682/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/633750ee2cafaeaf27af156c0702b682/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.2.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/b4fedd2b7398410c02546666461b308f/core-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.2.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/b4fedd2b7398410c02546666461b308f/core-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/cd35b4efc86a55ff5ebc68513d828e50/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/cd35b4efc86a55ff5ebc68513d828e50/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/73f7768c905d92f1ad9fba33cc76ab9d/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/73f7768c905d92f1ad9fba33cc76ab9d/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/3a07b2ac6fcf0372f5498f7c701a79be/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/3a07b2ac6fcf0372f5498f7c701a79be/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/00aa68e408a37241df5b238685dc8495/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/00aa68e408a37241df5b238685dc8495/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/3c88e8ef8fc2e03d8644441a018fc2af/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/3c88e8ef8fc2e03d8644441a018fc2af/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/2d4d57d63201a19cfd2f7091abf2cbf6/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/2d4d57d63201a19cfd2f7091abf2cbf6/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/d3ee6f55a20097514031528e68d5a300/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/d3ee6f55a20097514031528e68d5a300/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/0f927afa9c8c9734f8bd37f88a73b345/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/neda/.gradle/caches/transforms-2/files-2.1/0f927afa9c8c9734f8bd37f88a73b345/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+		MERGED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/neda/Documents/dev/rokt/rokt-webview-sdk-android/app/src/main/AndroidManifest.xml
