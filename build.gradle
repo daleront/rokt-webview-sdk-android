@@ -1,0 +1,40 @@
+buildscript {
+
+    apply from: './config.gradle'
+
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:${versions.gradleBuildTool}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:${versions.ktlint}"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://android-sdk-maven.s3.amazonaws.com/releases"
+        }
+    }
+}
+
+subprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+    ktlint {
+        android = true
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
