@@ -1,0 +1,3 @@
+rootProject.name='RoktWebviewSample'
+include ':app'
+include ':roktwebviewsdk'
