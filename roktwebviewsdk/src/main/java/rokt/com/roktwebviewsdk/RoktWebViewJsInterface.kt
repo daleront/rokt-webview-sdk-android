@@ -16,7 +16,7 @@ import android.util.Log
 import android.webkit.JavascriptInterface
 import java.lang.ref.WeakReference
 
-const val TAG = "RoktWebViewSDK"
+const val TAG = "RoktWebViewJsInterface"
 
 /**
  *  JSInterface that supports opening links in an external browser.
@@ -30,6 +30,11 @@ class RoktWebViewJsInterface(
     @JavascriptInterface
     fun open(url: String) {
         contextWeak.get()?.let { context ->
+            if (url.isEmpty()) {
+                Log.e(TAG, "open() was called but url is empty.")
+                return
+            }
+
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
 
             if (intent.canOpenInExternalApp(context)) {

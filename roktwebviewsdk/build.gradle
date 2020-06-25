@@ -30,4 +30,6 @@ dependencies {
     implementation libraries.androidXAppCompat
     implementation libraries.androidXExtensions
     testImplementation libraries.junit
+    androidTestImplementation libraries.espressoCore
+    androidTestImplementation libraries.extJUnit
 }

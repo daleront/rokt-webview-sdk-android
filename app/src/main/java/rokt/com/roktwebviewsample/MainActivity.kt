@@ -10,26 +10,37 @@
 package rokt.com.roktwebviewsample
 
 import android.os.Bundle
-import android.util.Log
+import android.webkit.URLUtil
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private val sampleHtmlString =
-        "<html><button onclick=\"RoktWebViewSDK.open('')\">" +
-                "Open Link</button></html>"
+        "<html><button onclick=\"RoktWebViewSDK.open('https://rokt.com')\">" +
+                "Open Link in External Browser</button></html>"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d("RoktWebView", "UserAgentString = " + webView.settings.userAgentString)
+        buttonGo.setOnClickListener {
+            editTextUrl.text.toString().let { urlString ->
+                if (URLUtil.isValidUrl(urlString)) {
+                    webView.loadUrl(urlString)
+                } else {
+                    Toast.makeText(this, "Invalid Url", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
-        webView.loadData(
-            sampleHtmlString,
-            "text/html",
-            "UTF-8"
-        )
+        buttonLoadSample.setOnClickListener {
+            webView.loadData(
+                sampleHtmlString,
+                "text/html",
+                "UTF-8"
+            )
+        }
     }
 }

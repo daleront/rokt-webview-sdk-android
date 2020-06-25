@@ -13,8 +13,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.webkit.WebView
-import rokt.com.roktwebviewsdk.Constants.ROKT_USER_AGENT_STRING
-import rokt.com.roktwebviewsdk.Constants.WEB_INTERFACE_NAME
 import java.lang.ref.WeakReference
 
 /**
@@ -40,7 +38,7 @@ class RoktWebView @JvmOverloads constructor(
      */
     private fun updateUserAgentString() {
         settings?.run {
-            userAgentString = ("$userAgentString$ROKT_USER_AGENT_STRING")
+            userAgentString = ("$userAgentString$roktUserAgentString")
         }
     }
 
