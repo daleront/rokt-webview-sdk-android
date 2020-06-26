@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
-        versionCode versions.versionCode
-        versionName versions.versionName
+        versionCode versions.sdkVersionCode
+        versionName versions.sdkVersionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -30,4 +30,6 @@ dependencies {
     implementation libraries.androidXAppCompat
     implementation libraries.androidXExtensions
     testImplementation libraries.junit
+    androidTestImplementation libraries.espressoCore
+    androidTestImplementation libraries.extJUnit
 }
