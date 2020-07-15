@@ -7,7 +7,7 @@
  *  You may obtain a copy of the License at https://rokt.com/sdk-license-2-0/
  */
 
-package rokt.com.roktwebviewsdk
+package com.rokt.roktwebviewsdk
 
 internal const val WEB_INTERFACE_NAME = "RoktWebViewSDK"
 

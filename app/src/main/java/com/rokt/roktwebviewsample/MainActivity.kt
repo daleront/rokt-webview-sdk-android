@@ -7,7 +7,7 @@
  *  You may obtain a copy of the License at https://rokt.com/sdk-license-2-0/
  */
 
-package rokt.com.roktwebviewsample
+package com.rokt.roktwebviewsample
 
 import android.os.Bundle
 import android.webkit.URLUtil

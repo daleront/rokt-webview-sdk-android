@@ -7,7 +7,7 @@ android {
     buildToolsVersion versions.buildToolsVersion
 
     defaultConfig {
-        applicationId "rokt.com.roktwebviewsample"
+        applicationId "com.rokt.roktwebviewsample"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.appVersionCode

@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  build_android:
+    image: circleci/android:api-29
+    user: root
+    volumes:
+      - ./:/source
+    working_dir: /source
+    environment:
+      - STORE_PASSWORD=${STORE_PASSWORD}
+      - KEY_ALIAS=${KEY_ALIAS}
+      - KEY_PASSWORD=${KEY_PASSWORD}
+      - BUILDKITE_BUILD_NUMBER=${BUILDKITE_BUILD_NUMBER}
+      - BUILDKITE_BRANCH=${BUILDKITE_BRANCH}
+      - BUILDKITE_MESSAGE=${BUILDKITE_MESSAGE}
+      - BINTRAY_USER=${BINTRAY_USER}
+      - BINTRAY_KEY=${BINTRAY_KEY}

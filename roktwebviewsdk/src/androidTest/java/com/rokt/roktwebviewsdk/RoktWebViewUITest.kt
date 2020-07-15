@@ -1,4 +1,4 @@
-package rokt.com.roktwebviewsdk
+package com.rokt.roktwebviewsdk
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider

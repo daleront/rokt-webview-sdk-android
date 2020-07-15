@@ -3,4 +3,5 @@
     <string name="instructions">Try a custom url or load the sample HTML</string>
     <string name="sample">Mock</string>
     <string name="go">Go</string>
+    <string name="https">https://</string>
 </resources>

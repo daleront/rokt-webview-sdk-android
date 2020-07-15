@@ -33,3 +33,5 @@ dependencies {
     androidTestImplementation libraries.espressoCore
     androidTestImplementation libraries.extJUnit
 }
+
+apply from: 'publish.gradle'

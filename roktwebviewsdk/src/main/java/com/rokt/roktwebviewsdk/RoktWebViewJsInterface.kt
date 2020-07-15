@@ -7,7 +7,7 @@
  *  You may obtain a copy of the License at https://rokt.com/sdk-license-2-0/
  */
 
-package rokt.com.roktwebviewsdk
+package com.rokt.roktwebviewsdk
 
 import android.content.Context
 import android.content.Intent
