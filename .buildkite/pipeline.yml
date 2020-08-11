@@ -1,5 +1,6 @@
 steps:
   - name: ':hammer: Build Android RoktWebView SDK'
+    key: "build-and-klint"
     commands:
       - bundle install
       - bundle exec fastlane buildAndroidSdkForPR
@@ -26,6 +27,7 @@ steps:
     timeout_in_minutes: 25
 
   - name: ':hammer: Test Android RoktWebView SDK'
+    depends_on: 'build-and-klint'
     key: "unit-tests"
     commands:
       - bundle install
