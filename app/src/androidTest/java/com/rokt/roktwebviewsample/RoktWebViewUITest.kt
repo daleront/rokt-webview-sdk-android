@@ -39,7 +39,7 @@ class RoktWebViewUITest {
     val activityTestRule = IntentsTestRule(MainActivity::class.java)
 
     @Test
-    fun externalBrowserShouldBeLaunched() {
+    fun clickingOnWebButtonShouldOpenLinkInExternalBrowser() {
         waitUntilCondition(
             onView(
                 Matchers.allOf(
