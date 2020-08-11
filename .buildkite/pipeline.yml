@@ -1,92 +1,87 @@
 steps:
   - name: ':hammer: Build Android RoktWebView SDK'
-    key: "build-and-klint"
+    key: build-and-klint
     commands:
       - bundle install
       - bundle exec fastlane buildAndroidSdkForPR
     artifact_paths:
-      - "app/**/*.apk"
-      - "roktwebviewsdk/**/*.aar"
+      - app/**/*.apk
+      - roktwebviewsdk/**/*.aar
     plugins:
-      - docker-compose#v3.0.0:
+      - 'docker-compose#v3.0.0':
           config: ./docker-compose.yml
           run: build_android
-      - seek-oss/aws-sm#v2.0.0:
+      - 'seek-oss/aws-sm#v2.0.0':
           env:
             STORE_PASSWORD:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.STORE_PASSWORD'
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .STORE_PASSWORD
             KEY_ALIAS:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.KEY_ALIAS'
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .KEY_ALIAS
             KEY_PASSWORD:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.KEY_PASSWORD'
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .KEY_PASSWORD
     agents:
-      queue: 'stage-us-west-2-default'
+      queue: stage-us-west-2-default
     timeout_in_minutes: 25
-
   - name: ':hammer: Test Android RoktWebView SDK'
-    depends_on: 'build-and-klint'
-    key: "unit-tests"
+    depends_on: build-and-klint
+    key: unit-tests
     commands:
       - bundle install
       - bundle exec fastlane test
     artifact_paths:
-      - "roktwebviewsdk/build/test-results/**/*.xml"
+      - roktwebviewsdk/build/test-results/**/*.xml
     plugins:
-      - docker-compose#v3.0.0:
+      - 'docker-compose#v3.0.0':
           config: ./docker-compose.yml
           run: build_android
     agents:
-      queue: 'eng-default'
+      queue: eng-default
     timeout_in_minutes: 25
-
-  - block: ":whale: Release to Maven"
-    prompt: "Confirm releasing this version to Maven?"
-
+  - name: ':pipeline: Dev'
+    commands:
+      - buildkite-agent pipeline upload .buildkite/pipeline-dev.yml
+    agents:
+      queue: eng-default
+    branches: '!release-*'
+  - name: ':pipeline: Release'
+    commands:
+      - buildkite-agent pipeline upload .buildkite/pipeline-prod.yml
+    agents:
+      queue: eng-default
+    branches: release-*
+  - block: ':whale: Release to Maven'
+    prompt: Confirm releasing this version to Maven?
   - name: ':rocket: Publish RoktWebView SDK to maven'
     commands:
       - bundle install
       - bundle exec fastlane publishToBintray
     artifact_paths:
-      - "app/**/*.apk"
-      - "roktwebviewsdk/**/*.aar"
+      - app/**/*.apk
+      - roktwebviewsdk/**/*.aar
     plugins:
-      - docker-compose#v3.0.0:
+      - 'docker-compose#v3.0.0':
           config: ./docker-compose.yml
           run: build_android
-      - seek-oss/aws-sm#v2.0.0:
+      - 'seek-oss/aws-sm#v2.0.0':
           env:
             STORE_PASSWORD:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.STORE_PASSWORD'
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .STORE_PASSWORD
             KEY_ALIAS:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.KEY_ALIAS'
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .KEY_ALIAS
             KEY_PASSWORD:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.KEY_PASSWORD'
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .KEY_PASSWORD
             BINTRAY_USER:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.BINTRAY_USER'
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .BINTRAY_USER
             BINTRAY_KEY:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.BINTRAY_KEY'
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .BINTRAY_KEY
     agents:
-      queue: 'stage-us-west-2-default'
+      queue: stage-us-west-2-default
     timeout_in_minutes: 25
-
-  - name: ':pipeline: Dev'
-    commands:
-      - buildkite-agent pipeline upload .buildkite/pipeline-dev.yml
-    agents:
-      queue: 'eng-default'
-    branches: "!release-*"
-
-  - name: ':pipeline: Release'
-    commands:
-      - buildkite-agent pipeline upload .buildkite/pipeline-prod.yml
-    agents:
-      queue: 'eng-default'
-    branches: "release-*"
