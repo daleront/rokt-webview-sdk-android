@@ -33,6 +33,9 @@ dependencies {
     implementation libraries.constraintLayout
     androidTestImplementation libraries.junit
     androidTestImplementation libraries.espressoCore
+    androidTestImplementation libraries.extJUnit
+    androidTestImplementation libraries.espressoIntents
+    androidTestImplementation libraries.espressoWeb
 
     implementation project(':roktwebviewsdk')
 }

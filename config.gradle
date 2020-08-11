@@ -35,7 +35,9 @@ ext.libraries = [
         constraintLayout  : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
         kotlinStdLib      : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
         espressoCore      : "androidx.test.espresso:espresso-core:${versions.espresso}",
-        extJUnit          : "androidx.test.ext:junit:${versions.extJUnit}"
+        extJUnit          : "androidx.test.ext:junit:${versions.extJUnit}",
+        espressoWeb       : "androidx.test.espresso:espresso-web:${versions.espresso}",
+        espressoIntents   : "androidx.test.espresso:espresso-intents:${versions.espresso}"
 
 ]
 
