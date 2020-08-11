@@ -38,7 +38,6 @@ class RoktWebViewUITest {
     @get:Rule
     val activityTestRule = IntentsTestRule(MainActivity::class.java)
 
-
     @Test
     fun externalBrowserShouldBeLaunched() {
         waitUntilCondition(
