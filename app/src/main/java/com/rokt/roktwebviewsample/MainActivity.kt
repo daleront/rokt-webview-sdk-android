@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private val sampleHtmlString =
-        "<html><button onclick=\"RoktWebViewSDK.open('https://rokt.com')\">" +
+        "<html><button id=\"button\" onclick=\"RoktWebViewSDK.open('https://rokt.com')\">" +
                 "Open Link in External Browser</button></html>"
 
     override fun onCreate(savedInstanceState: Bundle?) {
