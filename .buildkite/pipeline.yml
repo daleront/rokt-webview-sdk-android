@@ -55,7 +55,7 @@ steps:
       - seek-oss/aws-sm#v2.0.0:
           env:
             STORE_PASSWORD:
-              secret-id: 'stage-android-webviewsdk-buildkitee'
+              secret-id: 'stage-android-webviewsdk-buildkite'
               json-key: '.STORE_PASSWORD'
             KEY_ALIAS:
               secret-id: 'stage-android-webviewsdk-buildkite'
