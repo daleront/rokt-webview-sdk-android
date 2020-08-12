@@ -52,8 +52,14 @@ steps:
     agents:
       queue: eng-default
     branches: release-*
+
+  - wait
+
   - block: ':whale: Release to Maven'
     prompt: Confirm releasing this version to Maven?
+
+  - wait
+
   - name: ':speech_balloon: Notify Maven repository deployment start'
     command:
       - echo "Notify gchat"
@@ -97,6 +103,9 @@ steps:
     agents:
       queue: stage-us-west-2-default
     timeout_in_minutes: 25
+
+  - wait
+  
   - name: ':speech_balloon: Notify Maven repository deployment complete'
     command:
       - echo "Notify gchat done"
