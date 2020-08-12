@@ -1,3 +1,7 @@
+env:
+  NOTIFICATION_ENDPOINT: "https://chat.roktinternal.com/chat"
+  CHAT_WEBHOOK: "https://chat.googleapis.com/v1/spaces/AAAA8EXBrxk/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=dxxcf_Bpd7SWLTQO59aBm2KoovXKkatLSecUNvAG93c%3D"
+
 steps:
   - name: ':hammer: Build Android RoktWebView SDK'
     commands:
@@ -57,65 +61,6 @@ steps:
     command:
       - echo "Notify gchat"
     plugins:
-      - 'seek-oss/aws-sm#v2.0.0':
-          env:
-            NOTIFICATION_ENDPOINT:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .NOTIFICATION_ENDPOINT
-            CHAT_WEBHOOK:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .CHAT_WEBHOOK
-      - 'ROKT/hangouts-notify#v0.6':
-          chat-endpoint: ${NOTIFICATION_ENDPOINT}
-          webhook-url: ${CHAT_WEBHOOK}
-          message: 'test'
-    agents:
-      queue: stage-us-west-2-default
-  - name: ':rocket: Publish RoktWebView SDK to maven'
-    depends_on: block-release-maven
-    commands:
-      - bundle install
-      - bundle exec fastlane publishToBintray
-    artifact_paths:
-      - app/**/*.apk
-      - roktwebviewsdk/**/*.aar
-    plugins:
-      - 'docker-compose#v3.0.0':
-          config: ./docker-compose.yml
-          run: build_android
-      - 'seek-oss/aws-sm#v2.0.0':
-          env:
-            STORE_PASSWORD:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .STORE_PASSWORD
-            KEY_ALIAS:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .KEY_ALIAS
-            KEY_PASSWORD:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .KEY_PASSWORD
-            BINTRAY_USER:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .BINTRAY_USER
-            BINTRAY_KEY:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .BINTRAY_KEY
-    agents:
-      queue: stage-us-west-2-default
-    timeout_in_minutes: 25
-  - wait
-  - name: ':speech_balloon: Notify Maven repository deployment complete'
-    command:
-      - echo "Notify gchat done"
-    plugins:
-      - 'seek-oss/aws-sm#v2.0.0':
-          env:
-            NOTIFICATION_ENDPOINT:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .NOTIFICATION_ENDPOINT
-            CHAT_WEBHOOK:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .CHAT_WEBHOOK
       - 'ROKT/hangouts-notify#v0.6':
           chat-endpoint: ${NOTIFICATION_ENDPOINT}
           webhook-url: ${CHAT_WEBHOOK}
