@@ -68,6 +68,9 @@ steps:
               secret-id: stage-android-webviewsdk-buildkite
               json-key: .CHAT_WEBHOOK
       - 'ROKT/hangouts-notify#v0.6':
+          environment:
+            - NOTIFICATION_ENDPOINT
+            - CHAT_WEBHOOK
           chat-endpoint: ${NOTIFICATION_ENDPOINT}
           webhook-url: ${CHAT_WEBHOOK}
           message: 'test'
