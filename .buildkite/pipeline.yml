@@ -1,7 +1,3 @@
-env:
-  NOTIFICATION_ENDPOINT: "https://chat.roktinternal.com/chat"
-  CHAT_WEBHOOK: "https://chat.googleapis.com/v1/spaces/AAAA8EXBrxk/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=dxxcf_Bpd7SWLTQO59aBm2KoovXKkatLSecUNvAG93c%3D"
-
 steps:
   - name: ':hammer: Build Android RoktWebView SDK'
     commands:
@@ -59,8 +55,18 @@ steps:
   - name: ':speech_balloon: Notify Maven repository deployment start'
     depends_on: block-release-maven
     command:
+      - echo ${NOTIFICATION_ENDPOINT}
+      - echo ${CHAT_WEBHOOK}
       - echo "Notify gchat"
     plugins:
+      - 'seek-oss/aws-sm#v2.0.0':
+          env:
+            NOTIFICATION_ENDPOINT:
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .NOTIFICATION_ENDPOINT
+            CHAT_WEBHOOK:
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .CHAT_WEBHOOK
       - 'ROKT/hangouts-notify#v0.6':
           chat-endpoint: ${NOTIFICATION_ENDPOINT}
           webhook-url: ${CHAT_WEBHOOK}
