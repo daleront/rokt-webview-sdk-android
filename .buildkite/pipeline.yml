@@ -68,9 +68,9 @@ steps:
       - 'ROKT/hangouts-notify#v0.6':
           chat-endpoint: ${NOTIFICATION_ENDPOINT}
           webhook-url: ${CHAT_WEBHOOK}
-          message: '*RoktWebViewSDK Android* publishing the SDK to Maven repository\n${BUILDKITE_BUILD_URL}\n_by ${BUILDKITE_BUILD_CREATOR}_'
+          message: 'test'
     agents:
-      queue: eng-default
+      queue: stage-us-west-2-default
   - name: ':rocket: Publish RoktWebView SDK to maven'
     depends_on: block-release-maven
     commands:
@@ -119,6 +119,6 @@ steps:
       - 'ROKT/hangouts-notify#v0.6':
           chat-endpoint: ${NOTIFICATION_ENDPOINT}
           webhook-url: ${CHAT_WEBHOOK}
-          message: '*RoktWebViewSDK Android* publishing the SDK to Maven repository complete'
+          message: 'test'
     agents:
-      queue: eng-default
+      queue: stage-us-west-2-default
