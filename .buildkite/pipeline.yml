@@ -57,7 +57,7 @@ steps:
 
   - block: ':whale: Release to Maven'
     prompt: Confirm releasing this version to Maven?
-    key: 'block-release-maven'
+    key: block-release-maven
 
   - name: ':speech_balloon: Notify Maven repository deployment start'
     depends_on: block-release-maven
