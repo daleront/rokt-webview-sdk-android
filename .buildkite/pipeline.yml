@@ -37,7 +37,6 @@ steps:
     agents:
       queue: eng-default
     timeout_in_minutes: 25
-
   - name: ':pipeline: Dev'
     commands:
       - buildkite-agent pipeline upload .buildkite/pipeline-dev.yml
@@ -50,11 +49,9 @@ steps:
     agents:
       queue: eng-default
     branches: release-*
-
   - input: ':whale: Release to Maven'
     prompt: Confirm releasing this version to Maven?
     key: block-release-maven
-
   - name: ':speech_balloon: Notify Maven repository deployment start'
     depends_on: block-release-maven
     command:
@@ -69,16 +66,16 @@ steps:
               secret-id: stage-android-webviewsdk-buildkite
               json-key: .CHAT_WEBHOOK
       - 'ROKT/hangouts-notify#v0.6':
-          env: CHAT_WEBHOOK
+          env: CHAT_WEBHOOK NOTIFICATION_ENDPOINT
           chat-endpoint: NOTIFICATION_ENDPOINT
           webhook-url: CHAT_WEBHOOK
           message: >-
             *RoktWebViewSDK Android* publishing the SDK to Maven
             repository\n${BUILDKITE_BUILD_URL}\n_by ${BUILDKITE_BUILD_CREATOR}_
     agents:
-      queue: 'stage-us-west-2-default'
-
+      queue: stage-us-west-2-default
   - name: ':rocket: Publish RoktWebView SDK to maven'
+    depends_on: block-release-maven
     commands:
       - bundle install
       - bundle exec fastlane publishToBintray
@@ -109,9 +106,7 @@ steps:
     agents:
       queue: stage-us-west-2-default
     timeout_in_minutes: 25
-
   - wait
-
   - name: ':speech_balloon: Notify Maven repository deployment complete'
     command:
       - echo "Notify gchat done"
