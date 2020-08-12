@@ -69,13 +69,14 @@ steps:
               secret-id: stage-android-webviewsdk-buildkite
               json-key: .CHAT_WEBHOOK
       - 'ROKT/hangouts-notify#v0.6':
+          env: CHAT_WEBHOOK
           chat-endpoint: NOTIFICATION_ENDPOINT
           webhook-url: CHAT_WEBHOOK
           message: >-
             *RoktWebViewSDK Android* publishing the SDK to Maven
             repository\n${BUILDKITE_BUILD_URL}\n_by ${BUILDKITE_BUILD_CREATOR}_
     agents:
-      queue: eng-default
+      queue: 'stage-us-west-2-default'
 
   - name: ':rocket: Publish RoktWebView SDK to maven'
     commands:
