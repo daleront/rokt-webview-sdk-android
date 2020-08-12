@@ -1,62 +1,12 @@
 steps:
-  - name: ':hammer: Build Android RoktWebView SDK'
-    commands:
-      - bundle install
-      - bundle exec fastlane buildAndroidSdkForPR
-    artifact_paths:
-      - app/**/*.apk
-      - roktwebviewsdk/**/*.aar
-    plugins:
-      - 'docker-compose#v3.0.0':
-          config: ./docker-compose.yml
-          run: build_android
-      - 'seek-oss/aws-sm#v2.0.0':
-          env:
-            STORE_PASSWORD:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .STORE_PASSWORD
-            KEY_ALIAS:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .KEY_ALIAS
-            KEY_PASSWORD:
-              secret-id: stage-android-webviewsdk-buildkite
-              json-key: .KEY_PASSWORD
-    agents:
-      queue: stage-us-west-2-default
-    timeout_in_minutes: 25
-  - name: ':hammer: Test Android RoktWebView SDK'
-    commands:
-      - bundle install
-      - bundle exec fastlane test
-    artifact_paths:
-      - roktwebviewsdk/build/test-results/**/*.xml
-    plugins:
-      - 'docker-compose#v3.0.0':
-          config: ./docker-compose.yml
-          run: build_android
-    agents:
-      queue: eng-default
-    timeout_in_minutes: 25
-  - name: ':pipeline: Dev'
-    commands:
-      - buildkite-agent pipeline upload .buildkite/pipeline-dev.yml
-    agents:
-      queue: eng-default
-    branches: '!release-*'
-  - name: ':pipeline: Release'
-    commands:
-      - buildkite-agent pipeline upload .buildkite/pipeline-prod.yml
-    agents:
-      queue: eng-default
-    branches: release-*
   - input: ':whale: Release to Maven'
     prompt: Confirm releasing this version to Maven?
     key: block-release-maven
   - name: ':speech_balloon: Notify Maven repository deployment start'
     depends_on: block-release-maven
     command:
-      - echo ${NOTIFICATION_ENDPOINT}
-      - echo ${CHAT_WEBHOOK}
+      - echo $$NOTIFICATION_ENDPOINT
+      - echo $$CHAT_WEBHOOK
       - echo "Notify gchat"
     plugins:
       - 'seek-oss/aws-sm#v2.0.0':
@@ -68,9 +18,9 @@ steps:
               secret-id: stage-android-webviewsdk-buildkite
               json-key: .CHAT_WEBHOOK
       - 'ROKT/hangouts-notify#v0.6':
-          environment:
-            - NOTIFICATION_ENDPOINT
-            - CHAT_WEBHOOK
+          env:
+             NOTIFICATION_ENDPOINT
+             CHAT_WEBHOOK
           chat-endpoint: ${NOTIFICATION_ENDPOINT}
           webhook-url: ${CHAT_WEBHOOK}
           message: 'test'
