@@ -41,18 +41,66 @@ steps:
       queue: eng-default
     timeout_in_minutes: 25
 
+  - input: ':hammer: Device Farm UI Tests'
+    prompt: 'Run UI tests on Device Farm?'
+    branches: "!release-*"
+
+  - name: ':hammer: Build and UI Test'
+    commands:
+      - bundle install
+      - bundle exec fastlane deviceFarmUITest
+    artifact_paths:
+      - "app/**/*.apk"
+      - "roktsdk/**/*.aar"
+    plugins:
+      - docker-compose#v3.0.0:
+          config: ./docker-compose.yml
+          run: build_android
+      - seek-oss/aws-sm#v2.0.0:
+          env:
+            STORE_PASSWORD:
+              secret-id: 'stage-android-webviewsdk-buildkite'
+              json-key: '.STORE_PASSWORD'
+            KEY_ALIAS:
+              secret-id: 'stage-android-webviewsdk-buildkite'
+              json-key: '.KEY_ALIAS'
+            KEY_PASSWORD:
+              secret-id: 'stage-android-webviewsdk-buildkite'
+              json-key: '.KEY_PASSWORD'
+            DEVICE_FARM_STAGE_ACCESS_KEY:
+              secret-id: 'stage-android-webviewsdk-buildkite'
+              json-key: '.DEVICE_FARM_STAGE_ACCESS_KEY'
+            DEVICE_FARM_STAGE_DEVICE_POOL:
+              secret-id: 'stage-android-webviewsdk-buildkite'
+              json-key: '.DEVICE_FARM_STAGE_DEVICE_POOL'
+            DEVICE_FARM_STAGE_PROJECT_NAME:
+              secret-id: 'stage-android-webviewsdk-buildkite'
+              json-key: '.DEVICE_FARM_STAGE_PROJECT_NAME'
+            DEVICE_FARM_STAGE_SECRET_KEY:
+              secret-id: 'stage-android-webviewsdk-buildkite'
+              json-key: '.DEVICE_FARM_STAGE_SECRET_KEY'
+    agents:
+      queue: 'stage-us-west-2-default'
+    timeout_in_minutes: 60
+
   - block: ':whale: Release to Maven'
     prompt: Confirm releasing this version to Maven?
-    key: block-release-maven
 
   - name: ':speech_balloon: Notify Maven repository deployment start'
-    depends_on: block-release-maven
     command:
       - echo "Notify gchat"
     plugins:
+      - 'seek-oss/aws-sm#v2.0.0':
+          env:
+            NOTIFICATION_ENDPOINT:
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .NOTIFICATION_ENDPOINT
+            CHAT_WEBHOOK:
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .CHAT_WEBHOOK
       - 'ROKT/hangouts-notify#v0.6':
-          chat-endpoint: '${NOTIFICATION_ENDPOINT}'
-          webhook-url: '${CHAT_WEBHOOK}'
+          chat-endpoint: NOTIFICATION_ENDPOINT
+          webhook-url: CHAT_WEBHOOK
           message: >-
             *RoktWebViewSDK Android* publishing the SDK to Maven
             repository\n${BUILDKITE_BUILD_URL}\n_by ${BUILDKITE_BUILD_CREATOR}_
@@ -105,48 +153,3 @@ steps:
             complete
     agents:
       queue: eng-default
-
-
-  - input: ':hammer: Device Farm UI Tests'
-    prompt: 'Run UI tests on Device Farm?'
-    key: 'release-block-ui-tests'
-    branches: "!release-*"
-
-  - name: ':hammer: Build and UI Test'
-    depends_on: 'release-block-ui-tests'
-    commands:
-      - bundle install
-      - bundle exec fastlane deviceFarmUITest
-    artifact_paths:
-      - "app/**/*.apk"
-      - "roktsdk/**/*.aar"
-    plugins:
-      - docker-compose#v3.0.0:
-          config: ./docker-compose.yml
-          run: build_android
-      - seek-oss/aws-sm#v2.0.0:
-          env:
-            STORE_PASSWORD:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.STORE_PASSWORD'
-            KEY_ALIAS:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.KEY_ALIAS'
-            KEY_PASSWORD:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.KEY_PASSWORD'
-            DEVICE_FARM_STAGE_ACCESS_KEY:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.DEVICE_FARM_STAGE_ACCESS_KEY'
-            DEVICE_FARM_STAGE_DEVICE_POOL:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.DEVICE_FARM_STAGE_DEVICE_POOL'
-            DEVICE_FARM_STAGE_PROJECT_NAME:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.DEVICE_FARM_STAGE_PROJECT_NAME'
-            DEVICE_FARM_STAGE_SECRET_KEY:
-              secret-id: 'stage-android-webviewsdk-buildkite'
-              json-key: '.DEVICE_FARM_STAGE_SECRET_KEY'
-    agents:
-      queue: 'stage-us-west-2-default'
-    timeout_in_minutes: 60
