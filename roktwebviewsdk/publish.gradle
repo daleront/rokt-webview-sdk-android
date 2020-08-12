@@ -1,7 +1,7 @@
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven-publish'
 
-version = versions.sdkVersionName
+version = versions.sdkVersionName + versionSuffix()
 group = pub.groupId
 
 task androidSourcesJar(type: Jar) {
@@ -54,4 +54,17 @@ bintray {
             desc = pub.libraryDescription
         }
     }
+}
+
+def versionSuffix() {
+    def branch = ""
+    def proc = "git rev-parse --abbrev-ref HEAD".execute()
+    proc.in.eachLine { line -> branch = line }
+    proc.err.eachLine { line -> println line }
+    proc.waitFor()
+    def defaultSuffix=''
+    if(!branch.startsWith('release')) {
+        defaultSuffix='-alpha' + (System.getenv("BUILDKITE_BUILD_NUMBER") ?: "11").toInteger()
+    }
+    defaultSuffix
 }

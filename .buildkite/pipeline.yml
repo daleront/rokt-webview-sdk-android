@@ -54,6 +54,18 @@ steps:
     branches: release-*
   - block: ':whale: Release to Maven'
     prompt: Confirm releasing this version to Maven?
+  - name: ':speech_balloon: Notify Maven repository deployment start'
+    command:
+      - echo "Notify gchat"
+    plugins:
+      - 'ROKT/hangouts-notify#v0.6':
+          chat-endpoint: '${NOTIFICATION_ENDPOINT}'
+          webhook-url: '${CHAT_WEBHOOK}'
+          message: >-
+            *RoktWebViewSDK Android* publishing the SDK to Maven
+            repository\n${BUILDKITE_BUILD_URL}\n_by ${BUILDKITE_BUILD_CREATOR}_
+    agents:
+      queue: eng-default
   - name: ':rocket: Publish RoktWebView SDK to maven'
     commands:
       - bundle install
@@ -85,3 +97,15 @@ steps:
     agents:
       queue: stage-us-west-2-default
     timeout_in_minutes: 25
+  - name: ':speech_balloon: Notify Maven repository deployment complete'
+    command:
+      - echo "Notify gchat done"
+    plugins:
+      - 'ROKT/hangouts-notify#v0.6':
+          chat-endpoint: '${NOTIFICATION_ENDPOINT}'
+          webhook-url: '${CHAT_WEBHOOK}'
+          message: >-
+            *RoktWebViewSDK Android* publishing the SDK to Maven repository
+            complete
+    agents:
+      queue: eng-default
