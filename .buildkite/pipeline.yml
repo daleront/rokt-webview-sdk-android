@@ -57,10 +57,10 @@ steps:
 
   - block: ':whale: Release to Maven'
     prompt: Confirm releasing this version to Maven?
-
-  - wait
+    key: 'block-release-maven'
 
   - name: ':speech_balloon: Notify Maven repository deployment start'
+    depends_on: block-release-maven
     command:
       - echo "Notify gchat"
     plugins:
@@ -105,7 +105,7 @@ steps:
     timeout_in_minutes: 25
 
   - wait
-  
+
   - name: ':speech_balloon: Notify Maven repository deployment complete'
     command:
       - echo "Notify gchat done"
