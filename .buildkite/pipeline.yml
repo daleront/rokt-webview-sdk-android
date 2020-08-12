@@ -94,6 +94,14 @@ steps:
     command:
       - echo "Notify gchat"
     plugins:
+      - 'seek-oss/aws-sm#v2.0.0':
+          env:
+            NOTIFICATION_ENDPOINT:
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .NOTIFICATION_ENDPOINT
+            CHAT_WEBHOOK:
+              secret-id: stage-android-webviewsdk-buildkite
+              json-key: .CHAT_WEBHOOK
       - 'ROKT/hangouts-notify#v0.6':
           chat-endpoint: '${NOTIFICATION_ENDPOINT}'
           webhook-url: '${CHAT_WEBHOOK}'
@@ -102,6 +110,7 @@ steps:
             repository\n${BUILDKITE_BUILD_URL}\n_by ${BUILDKITE_BUILD_CREATOR}_
     agents:
       queue: eng-default
+
   - name: ':rocket: Publish RoktWebView SDK to maven'
     commands:
       - bundle install
