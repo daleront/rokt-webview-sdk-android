@@ -4,7 +4,7 @@ steps:
     key: block-release-maven
   - name: ':speech_balloon: Notify Maven repository deployment start'
     depends_on: block-release-maven
-    command: ./notify.sh
+    command: notify.sh
     plugins:
       - 'seek-oss/aws-sm#v2.0.0':
           env:
