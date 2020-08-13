@@ -9,7 +9,7 @@ steps:
       - echo $$CHAT_WEBHOOK
       - echo "Notify gchat"
     plugins:
-      - 'seek-oss/aws-sm#v2.0.0':
+      - seek-oss/aws-sm#v2.0.0:
           env:
             NOTIFICATION_ENDPOINT:
               secret-id: stage-android-webviewsdk-buildkite
@@ -17,9 +17,9 @@ steps:
             CHAT_WEBHOOK:
               secret-id: stage-android-webviewsdk-buildkite
               json-key: .CHAT_WEBHOOK
-      - 'ROKT/hangouts-notify#v0.9.3':
-          chat-endpoint: $$NOTIFICATION_ENDPOINT
-          webhook-url: $$CHAT_WEBHOOK
+      - ROKT/hangouts-notify#v0.9.3:
+          chat-endpoint: ${NOTIFICATION_ENDPOINT}
+          webhook-url: ${CHAT_WEBHOOK}
           message: 'test'
           webhook-url2: ""
           webhook-key: ""
