@@ -26,5 +26,16 @@ steps:
           chat-endpoint: ${NOTIFICATION_ENDPOINT}
           webhook-url: ${CHAT_WEBHOOK}
           message: 'test'
+          webhook-url2: ""
+          webhook-key: ""
+          usertoken-fail: ""
+          usertoken-pass: ""
+          type: ""
+          card-details: ""
+          rows: ""
+          commit-summary:
+            enabled: false
+            from-commit: ""
+            to-commit: ""
     agents:
       queue: stage-us-west-2-default
