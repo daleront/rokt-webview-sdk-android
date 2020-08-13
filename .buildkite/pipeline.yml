@@ -6,7 +6,7 @@ steps:
     depends_on: block-release-maven
     command:
       - echo "Notify gchat"
-      - curl -v -X POST -H "Content-Type: application/json" --data $'{"text": "This is a message"}' ${CHAT_WEBHOOK}&threadKey=${BUILDKITE_COMMIT}
+      - curl -v -X POST -H "Content-Type: application/json" --data '{"text": "This is a message"}' ${CHAT_WEBHOOK}&threadKey=${BUILDKITE_COMMIT}
     plugins:
       - seek-oss/aws-sm#v2.0.0:
           env:
