@@ -8,10 +8,6 @@ steps:
       echo $$CHAT_WEBHOOK && echo $$NOTIFICATION_ENDPOINT
       echo ${CHAT_WEBHOOK} && echo ${NOTIFICATION_ENDPOINT}
       echo $(git rev-parse HEAD)
-      curl -v -X POST                             \
-        -H "Content-Type: application/json" \
-        --data $'{"text": "Test"}'                   \
-        "${CHAT_WEBHOOK}&threadKey=${CURRENT_COMMIT}"
     plugins:
       - 'seek-oss/aws-sm#v2.0.0':
           env:
