@@ -5,9 +5,8 @@ steps:
   - name: ':speech_balloon: Notify Maven repository deployment start'
     depends_on: block-release-maven
     command:
-      - echo $$NOTIFICATION_ENDPOINT
-      - echo $$CHAT_WEBHOOK
       - echo "Notify gchat"
+      - curl -v -X POST -H "Content-Type: application/json" --data $'{"text": "This is a message"}' ${CHAT_WEBHOOK}&threadKey=${BUILDKITE_COMMIT}
     plugins:
       - seek-oss/aws-sm#v2.0.0:
           env:
@@ -17,20 +16,5 @@ steps:
             CHAT_WEBHOOK:
               secret-id: stage-android-webviewsdk-buildkite
               json-key: .CHAT_WEBHOOK
-      - ROKT/hangouts-notify#v0.9.3:
-          chat-endpoint: ${NOTIFICATION_ENDPOINT}
-          webhook-url: ${CHAT_WEBHOOK}
-          message: 'test'
-          webhook-url2: ""
-          webhook-key: ""
-          usertoken-fail: ""
-          usertoken-pass: ""
-          type: ""
-          card-details: ""
-          rows: ""
-          commit-summary:
-            enabled: false
-            from-commit: ""
-            to-commit: ""
     agents:
       queue: stage-us-west-2-default
